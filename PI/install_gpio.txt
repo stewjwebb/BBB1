@@ -1,0 +1,7 @@
+  283  wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.5.5.tar.gz
+  284  wget --no-check-certificate https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.5.5.tar.gz
+  286  tar zxf RPi.GPIO-0.5.5.tar.gz 
+  288  cd RPi.GPIO-0.5.5
+  291  python2 setup.py install
+  292  pacman -S gcc
+  293  python2 setup.py install
