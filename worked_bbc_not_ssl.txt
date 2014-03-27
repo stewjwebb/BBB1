@@ -1,0 +1,191 @@
+root@beaglebone:/home/debian# wvdial Verizon3GWorked
+--> WvDial: Internet dialer version 1.61
+--> Initializing modem.
+--> Sending: ATZ
+ATZ
+OK
+--> Sending: ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+OK
+--> Modem initialized.
+--> Sending: atdt*99***1#
+--> Waiting for carrier.
+atdt*99***1#
+CONNECT 316800
+--> Carrier detected.  Waiting for prompt.
+--> Don't know what to do!  Starting pppd and hoping for the best.
+--> Starting pppd at Thu Mar 27 18:25:17 2014
+--> Pid of pppd: 2900
+--> pppd: ��[02]
+--> Using interface ppp0
+--> pppd: ��[02]
+--> pppd: ��[02]
+--> local  IP address 10.252.117.2
+--> pppd: ��[02]
+--> remote IP address 66.174.208.64
+--> pppd: ��[02]
+--> primary   DNS address 198.224.170.135
+--> pppd: ��[02]
+--> secondary DNS address 198.224.169.135
+--> pppd: ��[02]
+#############################################################
+/etc/wvdial.conf
+[ Dialer Defaults ]
+#Init1 = ATZ
+#Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+#Modem Type = USB Modem
+#Stupid Mode = 3
+#New PPPD = yes
+#Dial Command = atdt
+#Carrier Check = no
+#ISDN = 0
+APN = vzwinternet
+
+[ Dialer Verizon3GA1 ]
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = USB Modem
+Stupid Mode = 3
+New PPPD = yes
+Dial Command = atdt
+Carrier Check = no
+ISDN = 0
+
+Modem         = /dev/ttyACM0
+Baud          = 3100000
+Phone         = *99***1#
+Username      = 9493964009@vzw3g.com
+Password      = vzw
+[ Dialer Verizon3GA2 ]
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = USB Modem
+Stupid Mode = 3
+New PPPD = yes
+Dial Command = atdt
+Carrier Check = no
+ISDN = 0
+
+Modem         = /dev/ttyACM0
+Baud          = 3100000
+Phone         = *99***2#
+Username      = 9493964009@vzw3g.com
+Password      = vzw
+[ Dialer Verizon3GA3 ]
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = USB Modem
+Stupid Mode = 3
+New PPPD = yes
+Dial Command = atdt
+Carrier Check = no
+ISDN = 0
+
+Modem         = /dev/ttyACM0
+Baud          = 3100000
+Phone         = *99***3#
+Username      = 9493964009@vzw3g.com
+Password      = vzw
+
+[ Dialer Verizon3GA7 ]
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = USB Modem
+Stupid Mode = 3
+New PPPD = yes
+Dial Command = atdt
+Carrier Check = no
+ISDN = 0
+
+Modem         = /dev/ttyACM0
+Baud          = 3100000
+Phone         = #777
+Username      = 9493964009@vzw3g.com
+Password      = vzw
+
+[ Dialer Verizon3GWORKED ]
+#got strange ir1.fp.vip.bf1.yahoo.com back on ping of yahoo.com
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = USB Modem
+Stupid Mode = 3
+New PPPD = yes
+Dial Command = atdt
+Carrier Check = no
+ISDN = 0
+
+Modem         = /dev/ttyACM0
+Baud          = 3100000
+Phone         = *99***1#
+Username      = 9493964009@vzw3g.com
+Password      = vzw
+
+[ Dialer Verizon4G ]
+
+Modem         = /dev/ttyACM0
+Baud          = 100000000
+Phone         = *99***3#
+Username      = 9493964009@vzw4g.com
+Password      = vzw
+###########################################
+
+debian@beaglebone:~/Desktop/Project/BBB1$ /sbin/ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 7c:66:9d:55:92:23  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:40 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:982 (982.0 B)  TX bytes:982 (982.0 B)
+
+ppp0      Link encap:Point-to-Point Protocol  
+          inet addr:10.252.117.2  P-t-P:66.174.208.64  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:42 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:55 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3 
+          RX bytes:9022 (8.8 KiB)  TX bytes:4727 (4.6 KiB)
+
+usb0      Link encap:Ethernet  HWaddr f6:7a:43:e6:cb:fb  
+          inet addr:192.168.7.2  Bcast:192.168.7.3  Mask:255.255.255.252
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+wwan0     Link encap:Ethernet  HWaddr 5a:cc:23:5b:93:c9  
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+debian@beaglebone:~/Desktop/Project/BBB1$ ping www.yahoo.com
+PING fd-fp3.wg1.b.yahoo.com (206.190.36.105) 56(84) bytes of data.
+^C64 bytes from ir2.fp.vip.gq1.yahoo.com (206.190.36.105): icmp_req=1 ttl=45 time=378 ms
+
+--- fd-fp3.wg1.b.yahoo.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 378.686/378.686/378.686/0.000 ms
+debian@beaglebone:~/Desktop/Project/BBB1$ ping www.bbc.co.uk
+PING www.bbc.net.uk (212.58.244.66) 56(84) bytes of data.
+64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=1 ttl=42 time=1948 ms
+64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=2 ttl=42 time=1220 ms
+64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=3 ttl=42 time=507 ms
+64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=4 ttl=42 time=528 ms
+64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=5 ttl=42 time=469 ms
+^C64 bytes from bbc-vip111.telhc.bbc.co.uk (212.58.244.66): icmp_req=6 ttl=42 time=729 ms
+
+--- www.bbc.net.uk ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 8229ms
+rtt min/avg/max/mdev = 469.297/900.715/1948.937/533.697 ms, pipe 2
+
