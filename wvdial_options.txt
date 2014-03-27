@@ -1,0 +1,19 @@
+/etc/wvdial.conf
+#################################
+[ Dialer Defaults ]
+Init1 = ATZ
+Stupid Mode = 1
+Dial Command = atdt
+Carrier Check = no
+
+[ Dialer Verizon ]
+
+Modem         = /dev/ttyACM0
+Baud          = 100000000
+Phone         = *99***3#
+Username      = 9493964009@vzw4g.com
+Password      = vzw
+###############################
+>sudo wvdial Verizon
+
+
