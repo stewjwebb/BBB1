@@ -1,0 +1,15 @@
+ Carrier detected.  Starting PPP immediately.
+--> Starting pppd at Sun Oct 12 05:19:07 2014
+--> Pid of pppd: 13957
+--> pppd:  02]
+--> Using interface ppp0
+--> pppd:  02]
+--> pppd:  02]
+--> local  IP address 10.162.165.178
+--> pppd:  02]
+--> remote IP address 69.83.185.161
+--> pppd:  02]
+--> primary   DNS address 198.224.171.135
+--> pppd:  02]
+--> secondary DNS address 198.224.169.135
+
