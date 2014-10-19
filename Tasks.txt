@@ -1,6 +1,10 @@
 10-18-14
 Tasks:
-	1. get gpio working
+	[x]1. get gpio working
 		-flash led etc
+			-not convinced led was visible
+			-[x]set up PIR and showed it could detect my hand (used multi-meter)
+			-[x]got GPIO45 8_11 to operate as input GPIO45 
+			-[x]got GPIO45 8_11 to operate as output GPIO45 with multi-meter
 	2. get usb port to MAC working.
 
