@@ -6,5 +6,6 @@ Tasks:
 			-[x]set up PIR and showed it could detect my hand (used multi-meter)
 			-[x]got GPIO45 8_11 to operate as input GPIO45 
 			-[x]got GPIO45 8_11 to operate as output GPIO45 with multi-meter
+/sys/class/gpio/gpio45$
 	2. get usb port to MAC working.
 
