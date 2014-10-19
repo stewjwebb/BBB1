@@ -1,0 +1,6 @@
+10-18-14
+Tasks:
+	1. get gpio working
+		-flash led etc
+	2. get usb port to MAC working.
+
