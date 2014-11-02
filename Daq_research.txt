@@ -1,1 +1,14 @@
 
+http://www.microdaq.com/measurement_computing/software/tracerdaq_software.php
+http://www.element14.com/community/community/designcenter/single-board-computers/next-gen_beaglebone/blog/2013/08/04/bbb--high-speed-data-acquisition-and-web-based-ui
+
+http://arduino.cc/en/Main/ArduinoBoardMicro
+
+http://search.ni.com/nisearch/app/main/p/ap/tech/lang/en/pg/1/sn/catnav:pm/fil/AND(nilanguage:en,phwebnt:7264,nicontenttype:productmanual,nidocstatus:current,nidoctype:specifications)/
+
+
+edge detect on counter, positive or negative +/-10V.
+http://www.ni.com/pdf/manuals/373921a.pdf
+
+white paper
+http://www.ni.com/white-paper/7021/en/
