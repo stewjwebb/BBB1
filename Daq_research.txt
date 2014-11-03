@@ -12,3 +12,6 @@ http://www.ni.com/pdf/manuals/373921a.pdf
 
 white paper
 http://www.ni.com/white-paper/7021/en/
+
+http://www.microdaq.com/measurement_computing/usb_data_acquisition/multifunction/minilab-daq.php
+
