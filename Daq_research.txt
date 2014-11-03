@@ -15,3 +15,5 @@ http://www.ni.com/white-paper/7021/en/
 
 http://www.microdaq.com/measurement_computing/usb_data_acquisition/multifunction/minilab-daq.php
 
+lab jack.
+http://labjack.com/support/u3/users-guide/preface
