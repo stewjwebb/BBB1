@@ -17,3 +17,8 @@ http://www.microdaq.com/measurement_computing/usb_data_acquisition/multifunction
 
 lab jack.
 http://labjack.com/support/u3/users-guide/preface
+
+dc-dc
+http://www.maximintegrated.com/en/app-notes/index.mvp/id/2031
+
+http://www.calex.com/cis549.html
