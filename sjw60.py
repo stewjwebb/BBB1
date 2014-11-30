@@ -80,6 +80,9 @@ if readIt:
             else:
                 gpioLoCnt += 1
                 gpioLoLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+
+
+
         mstr = "Lo::P9_12, %d, " % gpioLoCnt
         mstr += gpioLoLast
         #mstr += lastLoTime
