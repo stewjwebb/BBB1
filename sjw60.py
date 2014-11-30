@@ -10,8 +10,8 @@ gpioHiCnt = 0
 gpioLoCnt = 0
 gpioLoLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 gpioHiLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
-lastLoTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
-lastHiTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+#lastLoTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+#lastHiTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 lastVal = 35
 # put Port 8 Pin 3 into mode 7 (GPIO)
 #open('/sys/kernel/debug/omap_mux/gpmc_ad6', 'wb').write("%X" % 7)
@@ -33,49 +33,55 @@ else:
     open('/sys/class/gpio/gpio60/value', 'w').write('1')
 
 if readIt:
+    trigger = 0
+    red = open('/sys/class/gpio/gpio60/value').read()
+    comp = red.rstrip()
+    lastVal = comp
     while 1:
         red = open('/sys/class/gpio/gpio60/value').read()
         comp = red.rstrip()
-        mstr = "__"
+        #mstr = "__"
         #mstr += str(type(red))
-        mstr += comp
-        mstr += "__"
-        print mstr
-        if(comp== '1'):
-            print "gottit"
-            gpioHiCnt += 1
-            gpioHiLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
-        #if(red==0):
-        else:
-            gpioLoCnt += 1
-            gpioLoLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        #mstr += comp
+        #mstr += "__"
+        #print mstr
 
         if(lastVal == comp) :
             #do nothing
             dummy = 1    
         else :
+            trigger = 1
             lastVal = comp
-            if(lastVal == '1') :
-                lastLoTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
-            else :
-                lastHiTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+            #if(lastVal == '1') :
+            #    lastLoTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+            #else :
+            #    lastHiTime = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 
+        if trigger==1 :
+            if(comp== '1'):
+                #print "gottit"
+                gpioHiCnt += 1
+                gpioHiLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+            else:
+                gpioLoCnt += 1
+                gpioLoLast = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
         mstr = "Lo::P9_12, %d, " % gpioLoCnt
-        #mstr += gpioLoLast
-        mstr += lastLoTime
-        print mstr.strip()
-        mstr = "Hi::P9_12, %d, " % gpioHiCnt
-        #mstr += gpioHiLast
-        mstr += lastHiTime
+        mstr += gpioLoLast
+        #mstr += lastLoTime
+        #print mstr.strip()
+        mstr += "Hi::P9_12, %d, " % gpioHiCnt
+        mstr += gpioHiLast
+        #mstr += lastHiTime
         print mstr.strip()
 
         #print red
-        mstr = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
-        mstr += red.rstrip()
-        mstr += (" %d" % gpioHiCnt)
-        mstr += (" %d" % gpioLoCnt)
-        print mstr
+        #mstr = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        #mstr += red.rstrip()
+        #mstr += (" %d" % gpioHiCnt)
+        #mstr += (" %d" % gpioLoCnt)
+        #print mstr
         time.sleep(1)
+
         
     
     
