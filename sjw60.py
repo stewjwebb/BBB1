@@ -1,7 +1,22 @@
 #!/usr/bin/python
-# gpiotester.py
-# Blinks USR1 and USR2, plus external LED connected to Port 8 Pin 3 of the Beaglebone
-# -- must be run as root
+#ISSUES:
+# -count fields can overflow and are not fixed width
+# -time fields are not in unix time notation
+# -how often should we check pins, (resolution of 1second or higher??)
+# 		-right now I only read the pin every second.
+# 
+# TODO:
+# -need to test with all 8 outputs...so make sure can source enough current.
+# -need to map all gpios at least 8.
+# -put into function
+
+# REQUIREMENTS
+# -monitor every digital pin
+# -send data in following format
+# 	Pin, HighCount, TimeStampLastHigh, LowCount, TimeStampLastLow.
+# -Output for every active pin every second
+
+
 import time
 from time import gmtime, strftime
 
