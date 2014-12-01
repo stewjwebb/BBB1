@@ -26,7 +26,6 @@ class Pin
 			str += " pullIsEnabled"
 		end
 		
-		puts "4..#{((mode>>4)&1)}"
 
 		if(((mode>>4)&1) == 1)
 			str += " pullUppp"
@@ -85,10 +84,11 @@ red.each do |line|
 end
 p mode
 
+idx = 0
 mode.each do |md|
-		puts "mode #{md}"
-		 Pin.map_mode(md.to_i)
-
+	 puts "Pin::#{pin[idx]}::Header::#{headPin[idx]}"
+	 Pin.map_mode(md.to_i)
+     idx+=1
 end
 
 #Pin.map_mode(15)
