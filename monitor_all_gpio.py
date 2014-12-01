@@ -20,6 +20,7 @@ gpio_LastLoTime = ["nil" for i in range(256)]
 gpio_lastVal = [-1 for i in range(256)]
 
 gpio_names[60] = "P9_12"
+gpio_names[48] = "P9_15"
 gpio_names[115] = "P9_27"
 
 def openGpioForRead(id):
@@ -76,6 +77,7 @@ def initLoop():
         idx += 1
 def loop():
     #for every gpio
+    newline = 0
     idx = 0
     for name in gpio_names:
         if(name == 'nil'):
@@ -103,8 +105,11 @@ def loop():
                 mstr += ", HI, %d, " %(gpio_HiCnt[idx])
                 mstr += gpio_LastHiTime[idx]
                 print mstr.strip()
+                newline = 1
                 
         idx += 1 #idx for for loop
+    if(newline==1):
+        print ""
 
 
 
