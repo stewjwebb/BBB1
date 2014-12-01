@@ -54,7 +54,7 @@ def readGpio(id):
     return red.rstrip()
     
         
-def initLoop():
+def cleanLoop():
     idx = 0        
     for name in gpio_names:
         if(name == 'nil'):
@@ -104,6 +104,7 @@ def loop():
                 mstr += gpio_LastLoTime[idx]
                 mstr += ", HI, %d, " %(gpio_HiCnt[idx])
                 mstr += gpio_LastHiTime[idx]
+				mstr += ";"
                 print mstr.strip()
                 newline = 1
                 
