@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 
+import time
+from time import gmtime, strftime
 #gpio_names[gpioId] = "name" 
 #eg:
 #gpio_names[60] = "P9_12"
@@ -18,6 +20,7 @@ gpio_LastLoTime = ["nil" for i in range(256)]
 gpio_lastVal = [-1 for i in range(256)]
 
 gpio_names[60] = "P9_12"
+gpio_names[115] = "P9_27"
 
 def openGpioForRead(id):
     gpioStr = "/sys/class/gpio/gpio%d" % id
@@ -95,7 +98,7 @@ def readGpio(id):
 
         
 #initalize all last vals
-def initloop():
+def initLoop():
     idx = 0        
     for name in gpio_names:
         if(name == 'nil'):
@@ -113,7 +116,7 @@ def loop():
             dummy = 1
         else:
             comp = readGpio(idx)
-            print "%d::%s" % (idx, name)
+            #print "%d::%s" % (idx, name)
             if(gpio_lastVal[idx] != comp):
                 gpio_trigger[idx] = 1
                 gpio_lastVal[idx] = comp
@@ -128,7 +131,7 @@ def loop():
 
                 mstr = "%d::%s, %d, " %(idx, gpio_names[idx], gpio_LoCnt[idx])
                 mstr += gpio_LastLoTime[idx]
-                mstr = ", %d, " %(idx, gpio_names[idx], gpio_HiCnt[idx])
+                mstr += ", %d, " %(gpio_HiCnt[idx])
                 mstr += gpio_LastHiTime[idx]
                 print mstr.strip()
                 
@@ -141,7 +144,12 @@ openGpioForRead(112)
 openGpioForRead(115)
 
 initLoop()
-loop()
+while(1):
+	loop()
+	time.sleep(2)
+	
+
+
 r115 = readGpio(115)
 
 print "r115 %s" %r115
