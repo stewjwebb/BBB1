@@ -19,9 +19,34 @@ gpio_LastHiTime = ["nil" for i in range(256)]
 gpio_LastLoTime = ["nil" for i in range(256)]
 gpio_lastVal = [-1 for i in range(256)]
 
+#PIN 39 HEADER P8_09 23 Fixnum 7 GPIO pullIsEnabled pullUppp slowSlew
+#PIN 33 HEADER P8_20 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 32 HEADER P8_21 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 5 HEADER P8_22 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 4 HEADER P8_23 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 56 HEADER P8_27 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 58 HEADER P8_28 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 57 HEADER P8_29 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 59 HEADER P8_30 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN VDD_5V HEADER P9_05 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN VDD_5V HEADER P9_06 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 30 HEADER P9_12 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+#PIN 29 HEADER P9_13 55 Fixnum 7 GPIO pullIsEnabled pullUppp fastSlew
+
 gpio_names[60] = "P9_12"
 gpio_names[48] = "P9_15"
 gpio_names[115] = "P9_27"
+gpio_names[39] = "P8_09"
+gpio_names[33] = "P8_20"
+gpio_names[32] = "P8_21"
+gpio_names[5] = "P8_22"
+gpio_names[4] = "P8_23"
+#gpio_names[56] = "P8_27"
+gpio_names[58] = "P8_28"
+gpio_names[57] = "P8_29"
+#gpio_names[59] = "P8_30"
+gpio_names[30] = "P9_12"
+gpio_names[29] = "P9_13"
 
 def openGpioForRead(id):
     gpioStr = "/sys/class/gpio/gpio%d" % id
