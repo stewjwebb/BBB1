@@ -20,20 +20,22 @@ class Pin
 			str += "UNKWN"
 		end
 
-		if((mode>>4)&0x1)
+		if(((mode>>3)&0x1) == 1)
 			str += " pullNotEnabled"
 		else 
 			str += " pullIsEnabled"
 		end
 		
-		if((mode>>5)&1)
+		puts "4..#{((mode>>4)&1)}"
+
+		if(((mode>>4)&1) == 1)
 			str += " pullUppp"
 		else 
 			str += " pullDown"
 		end
 
 
-		if((mode>>6)&1)
+		if(((mode>>5)&1)==1)
 			str += " fastSlew"
 		else
 			str += " slowSlew"
@@ -49,9 +51,9 @@ red = IO.readlines("/sys/kernel/debug/pinctrl/44e10800.pinmux/pins")
 
 
 
-headPin = ["P9_11", "P9_12", "P9_13", "P9_14", "P9_15", "P9_16", "P9_17", "P9_18"] 
-pin     = [28, 30, 29, 18, 16, 19, 87, 86]
-gpioNum = [40, 60, 31, 50, 48, 51,  5,  4]
+headPin = ["P9_11", "P9_12", "P9_13", "P9_14", "P9_15", "P9_16", "P9_17", "P9_18", "P9_27"] 
+pin     = [28, 30, 29, 18, 16, 19, 87, 86, 105]
+gpioNum = [40, 60, 31, 50, 48, 51,  5,  4, 115]
 mode = []
 
 puts headPin.size
@@ -84,11 +86,12 @@ end
 p mode
 
 mode.each do |md|
-		 Pin.map_mode(md)
+		puts "mode #{md}"
+		 Pin.map_mode(md.to_i)
 
 end
 
-Pin.map_mode(15)
+#Pin.map_mode(15)
 #pins = Array.new
 #
 #headPin.size.times do |idx|
