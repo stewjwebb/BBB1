@@ -104,7 +104,7 @@ def loop():
                 mstr += gpio_LastLoTime[idx]
                 mstr += ", HI, %d, " %(gpio_HiCnt[idx])
                 mstr += gpio_LastHiTime[idx]
-				mstr += ";"
+                mstr += ";"
                 print mstr.strip()
                 newline = 1
                 
