@@ -1,0 +1,44 @@
+Tony for your demo tomorrow a few notes:
+
+When using dc voltage, 6V battery pack on the detector side (input) and 3.3V on the BBB (output) side.
+The breadboard rail nearest the red line (there's red and blue) takes the positive voltage/red wire.
+The breadboard rail nearest the blue line takes the ground or black wire.
+THis is true on both the input and output side fo the HCPL-3700 chip.
+
+I've used orange wire for 3.3V supply from BBB which comes out of header P9_3.
+I've used yellow wire for the GND from BBB which comes out of the header P8_1.
+
+
+The following GPIO pins are used as inputs to detect the output of the circuit:
+
+030, P9_11, LO, 793, 1417495362.733570, HI, 637, 1417495641.440232;
+048, P9_15, LO, 813, 1417495362.739061, HI, 605, 1417495641.445552;
+060, P9_12, LO, 812, 1417495362.741640, HI, 606, 1417495641.448110;
+061, P8_26, LO, 773, 1417495362.744243, HI, 391, 1417495641.450785;
+067, P8_08, LO, 823, 1417495362.749450, HI, 595, 1417495641.455718;
+068, P8_10, LO, 778, 1417495362.752622, HI, 421, 1417495641.458279;
+069, P8_09, LO, 792, 1417495362.754532, HI, 421, 1417495641.461153;
+
+
+Connect the output from the HCPL-3700 pin 7 to the corresponding GPIO input on the BBB. 
+
+If you have the AC side of the chip facing you pin 1 is on the left by the divet. 
+Pin 8 is opposite that on the far side. Pin 7 is next to pin 8. Numbered as below:
+
+ AC  1 8 VCC
+ DC+ 2 7 UNCONNECTED
+ DC- 3 6 VO 
+ AC  4 5 GND
+
+
+The AC inputs are all 4.7KOhm 1/2W resistors
+
+The DC inputs are 100 Ohm that's one hundred.
+
+Before applying AC input, you should remove the input DC circuitry (my test stuff), these are the blue wires attached between the blue rail and pin 3 and the 100 Ohm resistors attached between pin2 and the red rail.
+
+You should replace the green wire on the AC input side with your detectors.
+This is assuming all of your detectors are two pin open/close switches.
+
+Hope this helps.
+
